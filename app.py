@@ -14,12 +14,12 @@ app = Flask(__name__)
 
 # 必須放上自己的Channel Access Token
 line_bot_api = LineBotApi(
-    '7A3PibTZDmxuvjKLP10FdEyYvlthWHABiy/4crzalC6oZ61IpV+BgF+b7WLABv/3NCv1EQZXrq17uC5lc7P5rn3KTtvNcuAO3CpkRU1I8GwxHmIoXBSvfNRDeYuGLmgcqMOtw93QBWKabOhVoM3UGwdB04t89/1O/w1cDnyilFU=')
+    '7A3PibTZDmxuvjKLP10FdEyYv+BgF+b7WLABv/3NCv1EQZXrq17uC5lc7P5rn3KTtvNcuAO3CpkRU1I8GwxHmIoXBSvfNRDeYuGLmgcqMOtw93QBWKabOhVoM3UGwdB04t89/1O/w1cDnyilFU=')
 # 必須放上自己的Channel Secret
-handler = WebhookHandler('85233d8e7e4176e352f29b9ff2713870')
+handler = WebhookHandler('85233d8e7e41ff2713870')
 
 line_bot_api.push_message(
-    'Ueb610375209b3338cba1a20b94cd8d11', TextSendMessage(text='你可以開始了'))
+    'Ueb610375209ba20b94cd8d11', TextSendMessage(text='你可以開始了'))
 
 # 監聽所有來自 /callback 的 Post Request
 
@@ -49,7 +49,6 @@ def callback():
 def handle_message(event):
     message = text = event.message.text
     if re.match('告訴我秘密', message):
-        # Flex Message Simulator網頁：https://developers.line.biz/console/fx/
         flex_message = FlexSendMessage(
             alt_text='鉅亨網',
             contents={
