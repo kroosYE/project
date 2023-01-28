@@ -12,10 +12,10 @@ from linebot.models import *
 import re
 app = Flask(__name__)
 
-# 必須放上自己的Channel Access Token
+# 放上Channel Access Token
 line_bot_api = LineBotApi(
     '7A3PibTZDmxuvjKLP10FdEyYvlthWzalC6oZ61IpV+BgF+b7WLABv/3NCv1EQZXrq17uC5lc7P5rn3KTtvNcuAO3CpkRU1I8GwxHmIoXBSvfNRDeYuGLmgcqMOtw93QBWKabOhVoM3UGwdB04t89/1O/w1cDnyilFU=')
-# 必須放上自己的Channel Secret
+# 放上Channel Secret
 handler = WebhookHandler('85233d8e52f29b9ff2713870')
 
 line_bot_api.push_message(
@@ -42,9 +42,6 @@ def callback():
     return 'OK'
 
 # 訊息傳遞區塊
-##### 基本上程式編輯都在這個function #####
-
-
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = text = event.message.text
@@ -180,7 +177,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
 
 
-# 主程式
+
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
